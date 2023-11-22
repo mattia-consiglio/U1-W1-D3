@@ -32,7 +32,10 @@ article {
 
 	.image {
 		position: relative;
-
+		.video-with-placeholder {
+			display: flex;
+			align-items: center;
+		}
 		img {
 			width: 100%;
 			border-radius: 10px;

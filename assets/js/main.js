@@ -1,6 +1,22 @@
 let player
 const image = document.getElementById('playVideo')
-const playerContainer = document.getElementsByClassName('responsive-iframe')[0]
+let playerContainer
+let imageContainer
+
+window.onload = e => {
+	console.log('load')
+	playerContainer = document.getElementsByClassName('responsive-iframe')[0]
+	imageContainer = document.getElementsByClassName('video-with-placeholder')[0]
+
+	var altezzaImmagine = image.offsetHeight
+
+	var stileImmagine = window.getComputedStyle(image)
+	var margineSuperiore = parseInt(stileImmagine.marginTop)
+	var margineInferiore = parseInt(stileImmagine.marginBottom)
+	var altezzaTotale = altezzaImmagine + margineSuperiore + margineInferiore
+
+	imageContainer.style.minHeight = altezzaTotale + 'px'
+}
 
 function onYouTubeIframeAPIReady() {
 	player = new YT.Player('youtubeVideo', {
