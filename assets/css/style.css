@@ -31,12 +31,17 @@ article .title {
 article p {
   font-size: 1.1em;
 }
+article .image {
+  position: relative;
+}
 article .image img {
   width: 100%;
   border-radius: 10px;
   -webkit-box-shadow: 1px 1px 10px #888;
           box-shadow: 1px 1px 10px #888;
   margin-bottom: 15px;
+  z-index: 100;
+  position: absolute;
 }
 article .image figcaption {
   text-align: center;
@@ -69,4 +74,19 @@ a {
 
 .list li {
   margin-bottom: 1em;
+}
+
+.responsive-iframe {
+  max-width: 100%;
+  padding-top: 56.25%;
+  position: relative;
+  width: 100%;
+  opacity: 0;
+}
+.responsive-iframe iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }/*# sourceMappingURL=style.css.map */
