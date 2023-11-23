@@ -1,21 +1,18 @@
 let player
-const image = document.getElementById('playVideo')
+let image
 let playerContainer
 let imageContainer
 
 window.onload = e => {
-	console.log('load')
+	image = document.getElementById('playVideo')
 	playerContainer = document.getElementsByClassName('responsive-iframe')[0]
 	imageContainer = document.getElementsByClassName('video-with-placeholder')[0]
 
-	var altezzaImmagine = image.offsetHeight
-
-	var stileImmagine = window.getComputedStyle(image)
-	var margineSuperiore = parseInt(stileImmagine.marginTop)
-	var margineInferiore = parseInt(stileImmagine.marginBottom)
-	var altezzaTotale = altezzaImmagine + margineSuperiore + margineInferiore
-
-	imageContainer.style.minHeight = altezzaTotale + 'px'
+	image.addEventListener('click', function () {
+		image.style.display = 'none'
+		playerContainer.style.opacity = '1'
+		player.playVideo()
+	})
 }
 
 function onYouTubeIframeAPIReady() {
@@ -29,12 +26,4 @@ function onYouTubeIframeAPIReady() {
 	})
 }
 
-function onPlayerReady(event) {
-	// Il player è pronto ma non avvia il video automaticamente
-}
-
-image.addEventListener('click', function () {
-	image.style.display = 'none'
-	playerContainer.style.opacity = '1'
-	player.playVideo()
-})
+function onPlayerReady(event) {}

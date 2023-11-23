@@ -43,14 +43,62 @@ article .image .video-with-placeholder {
           align-items: center;
   cursor: pointer;
 }
-article .image img {
-  width: 100%;
+article .image .img-wrapper {
+  position: relative;
+  min-width: 100%;
+}
+article .image .img-wrapper .img {
+  margin-bottom: 15px;
+  background-color: #000;
   border-radius: 10px;
   -webkit-box-shadow: 1px 1px 10px #888;
           box-shadow: 1px 1px 10px #888;
-  margin-bottom: 15px;
-  z-index: 100;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+article .image .img-wrapper .img::before, article .image .img-wrapper .img::after {
+  content: "";
   position: absolute;
+  display: block;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50px);
+          transform: translate(-50%, -50px);
+}
+article .image .img-wrapper .img::before {
+  width: 70px;
+  height: 70px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  z-index: 200;
+  -webkit-transition: 200ms;
+  transition: 200ms;
+}
+article .image .img-wrapper .img::after {
+  z-index: 300;
+  width: 0;
+  height: 0;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-left: 20px solid #ffffff;
+  margin-top: 20px;
+  -webkit-transition: 200ms;
+  transition: 200ms;
+}
+article .image .img-wrapper .img:hover img {
+  opacity: 0.5;
+}
+article .image .img-wrapper .img:hover::before {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+article .image .img-wrapper img {
+  width: 100%;
+  border-radius: 10px;
+  z-index: 100;
+  position: relative;
+  -webkit-transition: 200ms;
+  transition: 200ms;
 }
 article .image figcaption {
   text-align: center;
